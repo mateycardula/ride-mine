@@ -1,0 +1,4 @@
+enum RideTypeEnum{
+  ESCOOTER,
+  BIKE
+}
