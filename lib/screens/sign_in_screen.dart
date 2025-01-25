@@ -28,7 +28,7 @@ class SignInScreen extends StatelessWidget {
                 hintText: 'Enter your password',
                 obscureText: true,
               ),
-              SubmitFormButton(buttonText: "Sign In", onPressedLogic: () {}),
+              SubmitFormButton(buttonText: "Sign In", onPressedLogic: () {Navigator.pushNamed(context, '/map');}),
               const SizedBox(height: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

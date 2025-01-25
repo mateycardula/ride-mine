@@ -32,7 +32,7 @@ class RegisterScreen extends StatelessWidget {
                 hintText: 'Enter your password',
                 obscureText: true,
               ),
-              SubmitFormButton(buttonText: "Register", onPressedLogic: () {}),
+              SubmitFormButton(buttonText: "Register", onPressedLogic: () {Navigator.pushNamed(context, '/signin');}),
               const SizedBox(height: 16),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
