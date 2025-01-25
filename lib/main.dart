@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ride_mine/providers/journey_provider.dart';
-import 'package:ride_mine/providers/user_provider.dart';
 import 'package:ride_mine/providers/ride_provider.dart';
+import 'package:ride_mine/providers/user_provider.dart';
+import 'package:ride_mine/screens/register_screen.dart';
+import 'package:ride_mine/screens/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,10 +21,12 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => RideProvider()),
         ChangeNotifierProvider(create: (_) => JourneyProvider()),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'Ride Mine',
-        initialRoute: '/sign_in',
+        initialRoute: '/signin',
         routes: {
+          '/register': (context) => RegisterScreen(),
+          '/signin': (context) => SignInScreen(),
         },
       ),
     );
