@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:provider/provider.dart';
 import 'package:ride_mine/providers/ride_provider.dart';
 import 'package:ride_mine/widgets/bottom_navigation_bar.dart';
+import 'package:ride_mine/widgets/map_floating_buttons.dart';
 
 class MapScreen extends StatelessWidget {
   @override
@@ -45,6 +46,7 @@ class MapScreen extends StatelessWidget {
               )
             ],
           ),
+          MapFloatingButtons(balance: 1200, addCreditFunction: () {}),
         ],
       ),
       bottomNavigationBar: const MyBottomNavigationBar(),
