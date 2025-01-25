@@ -10,7 +10,9 @@ class Ride {
   final int pricePerMin;
   final Duration duration;
   final int battery;
-  final User user;
+  final double lat;
+  final double lon;
+  final String userId;
 
   Ride({
     required this.id,
@@ -21,7 +23,9 @@ class Ride {
     required this.pricePerMin,
     required this.duration,
     required this.battery,
-    required this.user,
+    required this.lat,
+    required this.lon,
+    required this.userId,
   });
 
   factory Ride.fromJson(Map<String, dynamic> json) {
@@ -37,7 +41,9 @@ class Ride {
         duration: Duration(seconds: json['duration'] as int),
         // duration should be in seconds
         battery: json['battery'] as int,
-        user: User.fromJson(json['user'] as Map<String, dynamic>));
+        lat: (json['lat'] as num).toDouble(),
+        lon: (json['lon'] as num).toDouble(),
+        userId: json['userId'] as String);
   }
 
   Map<String, dynamic> toJson() {
@@ -50,7 +56,9 @@ class Ride {
       'pricePerMin': pricePerMin,
       'duration': duration.inSeconds, // Convert Duration to seconds
       'battery': battery,
-      'user': user.toJson(),
+      'lat': lat,
+      'lon': lon,
+      'user': userId,
     };
   }
 }

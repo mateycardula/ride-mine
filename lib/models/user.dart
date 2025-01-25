@@ -5,14 +5,14 @@ class User {
   final String email;
   final String password;
   final int credit;
-  final List<Ride> rides;
+  // final List<Ride> rides;
 
   User({
     required this.id,
     required this.email,
     required this.password,
     required this.credit,
-    required this.rides,
+    // required this.rides,
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -21,9 +21,9 @@ class User {
       email: json['email'] as String,
       password: json['password'] as String,
       credit: json['credit'] as int,
-      rides: (json['rides'] as List<dynamic>)
-          .map((rideJson) => Ride.fromJson(rideJson as Map<String, dynamic>))
-          .toList(),
+      // rides: (json['rides'] as List<dynamic>)
+      //     .map((rideJson) => Ride.fromJson(rideJson as Map<String, dynamic>))
+      //     .toList(),
     );
   }
 
@@ -33,7 +33,7 @@ class User {
       'email': email,
       'password': password,
       'credit': credit,
-      'rides': rides.map((ride) => ride.toJson()).toList(),
+      // 'rides': rides.map((ride) => ride.toJson()).toList(),
     };
   }
 }
