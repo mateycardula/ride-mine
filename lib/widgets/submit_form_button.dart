@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class SubmitFormButton extends StatelessWidget {
   final String buttonText;
   final VoidCallback onPressedLogic;
+  final double round;
 
   const SubmitFormButton(
-      {super.key, required this.buttonText, required this.onPressedLogic});
+      {super.key,
+      required this.buttonText,
+      required this.onPressedLogic,
+      this.round = 8});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +22,7 @@ class SubmitFormButton extends StatelessWidget {
             backgroundColor: const Color.fromRGBO(171, 204, 149, 1),
             padding: const EdgeInsets.symmetric(vertical: 12),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(round),
             ),
           ),
           child: Text(

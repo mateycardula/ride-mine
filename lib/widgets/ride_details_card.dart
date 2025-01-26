@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:ride_mine/models/ride.dart';
+import 'package:ride_mine/widgets/submit_form_button.dart';
 
 class RideDetailsCard extends StatelessWidget {
   final Ride ride;
 
-  const RideDetailsCard({Key? key, required this.ride}) : super(key: key);
+  const RideDetailsCard({super.key, required this.ride});
 
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       expand: false,
-      initialChildSize: 0.5,
+      initialChildSize: 0.43,
       minChildSize: 0.3,
       maxChildSize: 0.9,
       builder: (context, scrollController) {
@@ -19,7 +20,7 @@ class RideDetailsCard extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Center(
                   child: Container(
@@ -27,56 +28,98 @@ class RideDetailsCard extends StatelessWidget {
                     height: 4,
                     margin: const EdgeInsets.only(bottom: 16),
                     decoration: BoxDecoration(
-                      color: Colors.grey[300],
+                      color: Colors.grey[400],
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                 ),
                 Text(
-                  ride.name ?? "Ride Details",
+                  ride.name,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 36,
                     fontWeight: FontWeight.bold,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 8),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
-                    ride.image ?? '',
-                    height: 150,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                // Text("Unlock price: ${ride.unlockPrice} MKD"),
-                Text("Price per km: ${ride.pricePerKm} MKD"),
-                Text("Price per min: ${ride.pricePerMin} MKD"),
-                const SizedBox(height: 16),
+                const SizedBox(height: 12),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.battery_full, color: Colors.green[700]),
-                    const SizedBox(width: 8),
-                    Text(
-                      "Battery: ${ride.battery}%",
-                      style: const TextStyle(color: Colors.green),
+                    Expanded(
+                      flex: 1,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.network(
+                          ride.image ?? '',
+                          height: 150,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            "20 MKD - unlock price",
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            "${ride.pricePerKm} MKD / km",
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            "${ride.pricePerMin} MKD / min",
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(height: 8),
+                          Row(
+                            children: [
+                              Transform.rotate(
+                                angle: 90 * 3.1415926535 / 180,
+                                child: const Icon(
+                                  Icons.battery_4_bar,
+                                  color: Colors.black,
+                                  size: 28,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                "${ride.battery}%",
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const Row(
+                            children: [
+                              Text(
+                                "Approx. 2h remaining",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(171, 204, 149, 1),
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                  ),
-                  child: const Text("Start ride"),
-                ),
+                const SizedBox(height: 20),
+                SubmitFormButton(buttonText: "Start ride", onPressedLogic: (){},round: 24,),
                 const SizedBox(height: 16),
                 const Text(
-                  "Price is calculated based on your time spent and kilometers traveled",
-                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                  "Price is calculated based on your\ntime spent and kilometers traveled",
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
                   textAlign: TextAlign.center,
                 ),
               ],
