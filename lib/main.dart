@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:ride_mine/providers/journey_provider.dart';
 import 'package:ride_mine/providers/ride_provider.dart';
 import 'package:ride_mine/providers/user_provider.dart';
+import 'package:ride_mine/screens/home_screen.dart';
 import 'package:ride_mine/screens/map_screen.dart';
 import 'package:ride_mine/screens/register_screen.dart';
 import 'package:ride_mine/screens/sign_in_screen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         title: 'Ride Mine',
         initialRoute: '/signin',
         routes: {
+          '/home': (context) => HomeScreen(),
           '/register': (context) => RegisterScreen(),
           '/signin': (context) => SignInScreen(),
           '/map': (context) => MapScreen(),

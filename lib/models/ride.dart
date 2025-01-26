@@ -1,5 +1,4 @@
 import 'package:ride_mine/models/enums/RideTypeEnum.dart';
-import 'package:ride_mine/models/user.dart';
 
 class Ride {
   final String id;
@@ -10,10 +9,10 @@ class Ride {
   final int pricePerMin;
   final Duration duration;
   final int battery;
-  final double lat;
-  final double lon;
+  double lat;
+  double lon;
   final String userId;
-  final bool isTaken;
+  bool isTaken;
 
   Ride(
       {required this.id,

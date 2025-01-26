@@ -50,7 +50,7 @@ class RideDetailsCard extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(12),
                         child: Image.network(
-                          ride.image ?? '',
+                          ride.image,
                           height: 150,
                           width: double.infinity,
                           fit: BoxFit.cover,
@@ -115,7 +115,15 @@ class RideDetailsCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                SubmitFormButton(buttonText: "Start ride", onPressedLogic: (){},round: 24,),
+                SubmitFormButton(
+                  buttonText: "Start ride",
+                  onPressedLogic: () {
+                    ride.isTaken = true;
+                    Navigator.pushNamed(
+                        context, '/map'); //todo:correct the path
+                  },
+                  round: 24,
+                ),
                 const SizedBox(height: 16),
                 const Text(
                   "Price is calculated based on your\ntime spent and kilometers traveled",
