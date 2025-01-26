@@ -12,11 +12,12 @@ class MapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final rideProvider = Provider.of<RideProvider>(context);
+    final availableRides = rideProvider.rides.where((ride) => !ride.isTaken).toList();
     return Scaffold(
       body: Stack(
         children: [
           RideMap(
-              rides: rideProvider.rides,
+              rides: availableRides,
               onMarkerTap: (ride) {
                 _showRideDetails(context, ride);
               }),

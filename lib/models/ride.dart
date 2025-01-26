@@ -13,20 +13,21 @@ class Ride {
   final double lat;
   final double lon;
   final String userId;
+  final bool isTaken;
 
-  Ride({
-    required this.id,
-    required this.name,
-    required this.rideTypeEnum,
-    required this.image,
-    required this.pricePerKm,
-    required this.pricePerMin,
-    required this.duration,
-    required this.battery,
-    required this.lat,
-    required this.lon,
-    required this.userId,
-  });
+  Ride(
+      {required this.id,
+      required this.name,
+      required this.rideTypeEnum,
+      required this.image,
+      required this.pricePerKm,
+      required this.pricePerMin,
+      required this.duration,
+      required this.battery,
+      required this.lat,
+      required this.lon,
+      required this.userId,
+      required this.isTaken});
 
   factory Ride.fromJson(Map<String, dynamic> json) {
     return Ride(
@@ -43,7 +44,8 @@ class Ride {
         battery: json['battery'] as int,
         lat: (json['lat'] as num).toDouble(),
         lon: (json['lon'] as num).toDouble(),
-        userId: json['userId'] as String);
+        userId: json['userId'] as String,
+        isTaken: json['isTaken'] as bool);
   }
 
   Map<String, dynamic> toJson() {
@@ -59,6 +61,7 @@ class Ride {
       'lat': lat,
       'lon': lon,
       'user': userId,
+      'isTaken': isTaken,
     };
   }
 }

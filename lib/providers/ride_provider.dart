@@ -16,7 +16,8 @@ class RideProvider with ChangeNotifier {
         battery: 52,
         lat: 42.0016,
         lon: 21.4135,
-        userId: "1"),
+        userId: "1",
+        isTaken: false),
     Ride(
         id: "2",
         name: "Fast Bike",
@@ -29,7 +30,8 @@ class RideProvider with ChangeNotifier {
         battery: 100,
         lat: 42.0016,
         lon: 21.4145,
-        userId: "1"),
+        userId: "1",
+        isTaken: false),
   ];
 
   Ride getRideById(String rideId) {
