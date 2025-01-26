@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ride_mine/models/ride.dart';
-import 'package:ride_mine/widgets/submit_form_button.dart';
+import 'package:ride_mine/widgets/end_ride_button.dart';
 
-class RideDetailsCard extends StatelessWidget {
+class RideInProgressDetailsScreen extends StatelessWidget {
   final Ride ride;
 
-  const RideDetailsCard({super.key, required this.ride});
+  const RideInProgressDetailsScreen({super.key, required this.ride});
 
   @override
   Widget build(BuildContext context) {
@@ -64,20 +64,24 @@ class RideDetailsCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            "20 MKD - unlock price",
-                            style: TextStyle(fontSize: 16),
+                            "Ride time:",
+                            style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            "${ride.pricePerKm} MKD / km",
+                            "4 min 02 sec",
                             style: const TextStyle(fontSize: 16),
+                          ),
+                          const SizedBox(height: 8),
+                          const Text(
+                            "Ride distance:",
+                            style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 8),
                           Text(
-                            "${ride.pricePerMin} MKD / min",
+                            "16 km",
                             style: const TextStyle(fontSize: 16),
                           ),
-                          const SizedBox(height: 8),
                           Row(
                             children: [
                               Transform.rotate(
@@ -115,12 +119,12 @@ class RideDetailsCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                SubmitFormButton(
-                  buttonText: "Start ride",
+                EndRideButton(
+                  buttonText: "End ride",
                   onPressedLogic: () {
-                    ride.isTaken = true;
+                    ride.isTaken = false;
                     Navigator.pushNamed(
-                        context, '/activeRide');
+                        context, '/map');
                   },
                   round: 24,
                 ),

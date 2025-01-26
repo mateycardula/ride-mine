@@ -13,7 +13,7 @@ class RideMap extends StatelessWidget {
   Widget build(BuildContext context) {
     final initialCenter = rides.length == 1
         ? LatLng(rides[0].lat, rides[0].lon)
-        : LatLng(42.0018, 21.4097);
+        : LatLng(42.0030, 21.4147);
 
     return FlutterMap(
       mapController: MapController(),
