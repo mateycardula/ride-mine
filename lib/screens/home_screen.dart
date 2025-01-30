@@ -70,7 +70,8 @@ class HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color.fromRGBO(171, 204, 149, 1),
+                              backgroundColor:
+                                  const Color.fromRGBO(171, 204, 149, 1),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
@@ -79,7 +80,8 @@ class HomeScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.pushNamed(context, '/map');
                             },
-                            child: const Text('Take a ride'),
+                            child: const Text('Take a ride',
+                                style: TextStyle(color: Colors.white)),
                           ),
                         ),
                       ),
@@ -89,7 +91,8 @@ class HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color.fromRGBO(171, 204, 149, 1),
+                              backgroundColor:
+                                  const Color.fromRGBO(171, 204, 149, 1),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
@@ -103,7 +106,10 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               );
                             },
-                            child: const Text('Rent yours'),
+                            child: const Text(
+                              'Rent yours',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         ),
                       ),
