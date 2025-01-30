@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "511996291221",
+    "project_id": "ride-mine",
+    "storage_bucket": "ride-mine.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:511996291221:android:86114c7ffaef478f0c939c",
+        "android_client_info": {
+          "package_name": "mk.ukim.finki.ridemine"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjZ5-i8tBJppaqfr67iE7d1_R8HeMdezQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
