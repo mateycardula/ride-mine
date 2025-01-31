@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ride_mine/models/ride.dart';
 import 'package:ride_mine/widgets/submit_form_button.dart';
+import '../screens/simulated_camera_screen.dart'; // Import the camera screen
 
 class RideDetailsCard extends StatelessWidget {
   final Ride ride;
-  final VoidCallback onStartRide;
 
-  const RideDetailsCard({super.key, required this.ride, required this.onStartRide});
+  const RideDetailsCard({super.key, required this.ride});
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +118,14 @@ class RideDetailsCard extends StatelessWidget {
                 const SizedBox(height: 20),
                 SubmitFormButton(
                   buttonText: "Start ride",
-                  onPressedLogic: onStartRide,
+                  onPressedLogic: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CameraSimulationScreen(ride: ride),
+                      ),
+                    );
+                  },
                   round: 24,
                 ),
                 const SizedBox(height: 16),

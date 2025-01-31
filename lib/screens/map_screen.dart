@@ -70,10 +70,6 @@ class MapScreen extends StatelessWidget {
       builder: (context) {
         return RideDetailsCard(
           ride: ride,
-          onStartRide: () {
-            rideProvider.startRide(ride);
-            Navigator.pop(context); // Close bottom sheet
-          },
         );
       },
     );
