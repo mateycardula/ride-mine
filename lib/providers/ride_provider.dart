@@ -32,6 +32,20 @@ class RideProvider with ChangeNotifier {
         lon: 21.4145,
         userId: "1",
         isTaken: false),
+    Ride(
+        id: "3",
+        name: "Scooter",
+        rideTypeEnum: RideTypeEnum.ESCOOTER,
+        image:
+        "https://vader-prod.s3.amazonaws.com/1595440086-priority-600-1595439979.jpg",
+        pricePerKm: 15,
+        pricePerMin: 5,
+        duration: Duration(seconds: 58),
+        battery: 100,
+        lat: 42.0030,
+        lon: 21.4120,
+        userId: "1",
+        isTaken: false),
   ];
 
   Ride? getActiveRide() {

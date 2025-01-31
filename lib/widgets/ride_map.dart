@@ -3,6 +3,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:ride_mine/models/ride.dart';
 
+import '../models/enums/RideTypeEnum.dart';
+
 class RideMap extends StatelessWidget {
   final List<Ride> rides;
   final Function(Ride) onMarkerTap;
@@ -29,18 +31,28 @@ class RideMap extends StatelessWidget {
         ),
         MarkerLayer(
           markers: rides.map((ride) {
+            IconData rideIcon = ride.rideTypeEnum == RideTypeEnum.BIKE
+                ? Icons.directions_bike
+                : Icons.electric_scooter;
             return Marker(
               point: LatLng(ride.lat, ride.lon),
-              width: 40,
-              height: 40,
+              width: 50,
+              height: 50,
               child: GestureDetector(
                 onTap: () {
                   onMarkerTap(ride);
                 },
-                child: const Icon(
-                  Icons.directions_bike,
-                  color: Colors.blue,
-                  size: 30,
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.white.withOpacity(0.8),
+                  ),
+                  padding: const EdgeInsets.all(8),
+                  child: Icon(
+                    rideIcon,
+                    color: Colors.blue,
+                    size: 30,
+                  ),
                 ),
               ),
             );

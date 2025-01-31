@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final rideProvider = Provider.of<RideProvider>(context);
     final availableRides =
-        rideProvider.rides.where((ride) => !ride.isTaken).toList();
+    rideProvider.rides.where((ride) => !ride.isTaken).toList();
     return Scaffold(
       body: Column(
         children: [
@@ -21,21 +21,34 @@ class HomeScreen extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.4,
             child: Stack(
               children: [
-                RideMap(
-                  rides: availableRides,
-                  onMarkerTap: (ride) {},
-                ),
-                MapFloatingButtons(
-                  balance: 1200,
-                  addCreditFunction: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AddCreditScreen(),
+                Stack(
+                  children: [
+                    RideMap(
+                      rides: availableRides,
+                      onMarkerTap: (ride) {},
+                    ),
+                    Positioned.fill(
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque, // Ensures taps go through to the GestureDetector
+                        onTap: () {
+                          Navigator.pushNamed(context, '/map');
+                        },
                       ),
-                    );
-                  },
+                    ),
+                    MapFloatingButtons(
+                      balance: 1200,
+                      addCreditFunction: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AddCreditScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
+
               ],
             ),
           ),
@@ -57,11 +70,10 @@ class HomeScreen extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
+              const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // const SizedBox(height: 20),
                   Row(
                     children: [
                       Expanded(
@@ -71,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
-                                  const Color.fromRGBO(171, 204, 149, 1),
+                              const Color.fromRGBO(171, 204, 149, 1),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
@@ -92,7 +104,7 @@ class HomeScreen extends StatelessWidget {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               backgroundColor:
-                                  const Color.fromRGBO(171, 204, 149, 1),
+                              const Color.fromRGBO(171, 204, 149, 1),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
