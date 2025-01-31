@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
           '/register': (context) => RegisterScreen(),
           '/signin': (context) => SignInScreen(),
           '/map': (context) => MapScreen(),
-          // '/activeRide': (context) => MapWhenActiveRideScreen(),
           '/profile': (context) => ProfileScreen(),
         },
       ),

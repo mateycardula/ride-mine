@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyBottomNavigationBar extends StatelessWidget {
-  const MyBottomNavigationBar({super.key});
+class BottomNavBar extends StatelessWidget {
+  const BottomNavBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class MyBottomNavigationBar extends StatelessWidget {
           ),
           BottomNavigationBarItem(
             icon: CircleAvatar(
-              child: Text('TT'),
+              child: Text('BO'),
               radius: 16,
               backgroundColor: Colors.black,
               foregroundColor: Colors.white,

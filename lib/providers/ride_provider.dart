@@ -37,7 +37,7 @@ class RideProvider with ChangeNotifier {
         name: "Scooter",
         rideTypeEnum: RideTypeEnum.ESCOOTER,
         image:
-        "https://vader-prod.s3.amazonaws.com/1595440086-priority-600-1595439979.jpg",
+        "https://live-production.wcms.abc-cdn.net.au/2b5eb6de5fe3f4db25430129ee422621?impolicy=wcms_crop_resize&cropH=720&cropW=1280&xPos=0&yPos=50&width=862&height=485",
         pricePerKm: 15,
         pricePerMin: 5,
         duration: Duration(seconds: 58),

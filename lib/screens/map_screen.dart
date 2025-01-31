@@ -56,7 +56,7 @@ class MapScreen extends StatelessWidget {
             ),
         ],
       ),
-      bottomNavigationBar: const MyBottomNavigationBar(),
+      bottomNavigationBar: const BottomNavBar(),
     );
   }
 
