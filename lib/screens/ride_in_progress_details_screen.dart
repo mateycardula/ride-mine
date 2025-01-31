@@ -4,8 +4,9 @@ import 'package:ride_mine/widgets/end_ride_button.dart';
 
 class RideInProgressDetailsScreen extends StatelessWidget {
   final Ride ride;
+  final VoidCallback onEndRide;
 
-  const RideInProgressDetailsScreen({super.key, required this.ride});
+  const RideInProgressDetailsScreen({super.key, required this.ride, required this.onEndRide});
 
   @override
   Widget build(BuildContext context) {
@@ -121,11 +122,7 @@ class RideInProgressDetailsScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 EndRideButton(
                   buttonText: "End ride",
-                  onPressedLogic: () {
-                    ride.isTaken = false;
-                    Navigator.pushNamed(
-                        context, '/map');
-                  },
+                  onPressedLogic: onEndRide, // <-- Use the passed callback
                   round: 24,
                 ),
                 const SizedBox(height: 16),

@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:ride_mine/providers/journey_provider.dart';
 import 'package:ride_mine/providers/ride_provider.dart';
 import 'package:ride_mine/providers/user_provider.dart';
-import 'package:ride_mine/screens/map_when_active_ride_screen.dart';
 import 'package:ride_mine/screens/home_screen.dart';
 import 'package:ride_mine/screens/map_screen.dart';
 import 'package:ride_mine/screens/profile_screen.dart';
@@ -37,7 +36,7 @@ class MyApp extends StatelessWidget {
           '/register': (context) => RegisterScreen(),
           '/signin': (context) => SignInScreen(),
           '/map': (context) => MapScreen(),
-          '/activeRide': (context) => MapWhenActiveRideScreen(),
+          // '/activeRide': (context) => MapWhenActiveRideScreen(),
           '/profile': (context) => ProfileScreen(),
         },
       ),

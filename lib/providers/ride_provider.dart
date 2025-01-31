@@ -9,7 +9,7 @@ class RideProvider with ChangeNotifier {
         name: "City Bike",
         rideTypeEnum: RideTypeEnum.BIKE,
         image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0SgOz4pRZUfATSCi2pWQNOuPkm-z6KjOfzQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0SgOz4pRZUfATSCi2pWQNOuPkm-z6KjOfzQ&s",
         pricePerKm: 10,
         pricePerMin: 3,
         duration: Duration(minutes: 3, seconds: 15),
@@ -23,7 +23,7 @@ class RideProvider with ChangeNotifier {
         name: "Fast Bike",
         rideTypeEnum: RideTypeEnum.BIKE,
         image:
-            "https://vader-prod.s3.amazonaws.com/1595440086-priority-600-1595439979.jpg",
+        "https://vader-prod.s3.amazonaws.com/1595440086-priority-600-1595439979.jpg",
         pricePerKm: 15,
         pricePerMin: 5,
         duration: Duration(seconds: 58),
@@ -34,9 +34,32 @@ class RideProvider with ChangeNotifier {
         isTaken: false),
   ];
 
+  Ride? getActiveRide() {
+    try {
+      return _rides.firstWhere((ride) => ride.isTaken);
+    } catch (e) {
+      return null;
+    }
+  }
+
   Ride getRideById(String rideId) {
     return _rides.firstWhere((ride) => ride.id == rideId);
   }
 
   List<Ride> get rides => _rides;
+
+  /// Marks a ride as active and notifies listeners.
+  void startRide(Ride ride) {
+    ride.isTaken = true;
+    notifyListeners();
+  }
+
+  /// Ends the active ride and notifies listeners.
+  void endRide() {
+    final activeRide = getActiveRide();
+    if (activeRide != null) {
+      activeRide.isTaken = false;
+      notifyListeners();
+    }
+  }
 }

@@ -4,8 +4,9 @@ import 'package:ride_mine/widgets/submit_form_button.dart';
 
 class RideDetailsCard extends StatelessWidget {
   final Ride ride;
+  final VoidCallback onStartRide;
 
-  const RideDetailsCard({super.key, required this.ride});
+  const RideDetailsCard({super.key, required this.ride, required this.onStartRide});
 
   @override
   Widget build(BuildContext context) {
@@ -117,14 +118,7 @@ class RideDetailsCard extends StatelessWidget {
                 const SizedBox(height: 20),
                 SubmitFormButton(
                   buttonText: "Start ride",
-                  onPressedLogic: () {
-                    ride.isTaken = true;
-                    Navigator.pushNamed(
-                      context,
-                      '/activeRide',
-                      arguments: ride,
-                    );
-                  },
+                  onPressedLogic: onStartRide,
                   round: 24,
                 ),
                 const SizedBox(height: 16),
