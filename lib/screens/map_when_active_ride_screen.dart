@@ -10,6 +10,8 @@ import 'add_credit_screen.dart';
 class MapWhenActiveRideScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Ride ride = ModalRoute.of(context)?.settings.arguments as Ride;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -34,20 +36,7 @@ class MapWhenActiveRideScreen extends StatelessWidget {
               onPressed: () {
                 _showRideDetails(
                     context,
-                    Ride(
-                        id: "1",
-                        name: "City Bike",
-                        rideTypeEnum: RideTypeEnum.BIKE,
-                        image:
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0SgOz4pRZUfATSCi2pWQNOuPkm-z6KjOfzQ&s",
-                        pricePerKm: 10,
-                        pricePerMin: 3,
-                        duration: const Duration(minutes: 3, seconds: 15),
-                        battery: 52,
-                        lat: 42.0027,
-                        lon: 21.4135,
-                        userId: "1",
-                        isTaken: false));
+                    ride);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,

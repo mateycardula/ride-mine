@@ -13,7 +13,7 @@ import 'package:ride_mine/screens/sign_in_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(); // 🔥 Ensure Firebase is initialized
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

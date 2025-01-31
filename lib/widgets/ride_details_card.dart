@@ -120,7 +120,10 @@ class RideDetailsCard extends StatelessWidget {
                   onPressedLogic: () {
                     ride.isTaken = true;
                     Navigator.pushNamed(
-                        context, '/activeRide');
+                      context,
+                      '/activeRide',
+                      arguments: ride,
+                    );
                   },
                   round: 24,
                 ),
